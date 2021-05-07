@@ -59,11 +59,11 @@ export default class Sidebar extends React.Component {
             padding: "5px"
         };
 
-        return (<div>
+        return (<div className="wall" id = "wholecat">
             <App subCat={this.state.latestPurchase} ref={this.state.ChildElement} catsPS={calculateCookies(this.state,"counter")}/>
             <div className= "columns">
             <FactoryViewer amounts =  {this.state.amounts}/>
-            <div className = "wall column"></div>
+            <div className = "column"></div>
             <div id="Sidebar" className = "column" >
             <li id = "cursorsBuy" className="tile is-child box columns" onClick={e => this.handleClick("cursorsBuy")}>
                 <div className="column"><img className ="img" src={cursor}></img>

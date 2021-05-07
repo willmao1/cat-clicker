@@ -1,4 +1,4 @@
-.box{
+/* .box{
     margin-bottom: 0px;
     position:relative;
     border: solid;
@@ -9,6 +9,10 @@
     height:12.5%;
     box-shadow: -10px 0px 100px 20px rgba(0, 0, 0, 0.2)!important ;
     
+}
+#wholecat {
+    position:absolute;
+    width: 100%;
 }
 .catViewer{
     margin-bottom: 0px;
@@ -63,4 +67,4 @@ h1 {
 }
 h2 {
     font-family: 'Courier New', Courier, monospace;
-}
+} */

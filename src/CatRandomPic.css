@@ -1,12 +1,12 @@
-#randomCat:hover {
+/* #randomCat:hover {
     cursor: pointer;
   }
   #randomCat:active {
     filter: brightness(50%);
    }
   #randomCat {
+    position:absolute;
     border:solid ;
     border-color: white;
     border-radius: 10px;
-    display:none;
-  }
+  } */

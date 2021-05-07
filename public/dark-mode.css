@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  .box{
+    margin-bottom: 0px;
+    position:relative;
+    border: solid;
+    color: white;
+    border-width: 10px;
+    border-radius: 0px !important;
+    background-image: url(woodback.png);
+    border-image: url(darkwood.png) 50 50 50 50 stretch stretch;
+    height:12.5%;
+    box-shadow: -10px 0px 100px 20px rgba(0, 0, 0, 0.2)!important ;
+    
+  }
+  #wholecat {
+    position:absolute;
+    width: 100%;
+  }
+  .catViewer{
+    margin-bottom: 0px;
+    position:relative;
+    border: solid;
+    border-width: 10px;
+    border-radius: 0;
+    border-image: url(darkwood.png) 50 50 50 50 stretch stretch;
+    height:12.5%;
+    box-shadow: 10px 10px 100px 20px rgba(0, 0, 0, 0.2);
+    background-image: url(darkcat.png) ; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; ;
+  }
+  #Sidebar {
+    overflow-y:auto
+  }
+  .catPic {
+    height: 25px;
+    width:20px;
+  }
+  .box:active {
+    filter: brightness(50%);
+    transform: scale(.995);
+  }
+  
+  .wall {
+    width:20px;
+    
+    background: url(night.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .img{
+    width:50px;
+    border: solid;
+    border-image: url(wood.png) 50 50 50 50 stretch stretch;
+    margin-right: 10px;
+    height:50px;
+  }
+  .thingNum {
+    font-size:50px;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%)
+  }
+  h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color:white !important;
+  }
+  h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color:white !important;
+  }
+  
+  #DarkModeButton{
+    position:relative;
+    left: 100%;
+    transform: translate(-100%,0%);
+  }
+  #Counter{
+    text-align: center;
+    position:fixed;
+    top: 0%;
+    left: 50%;
+    color:white; 
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    border:solid;
+    max-width:20%;
+    border-color: gray;
+    background-color: black;
+    border-radius: 20px;
+    transform: translate(-50%, 0%);
+  }
+  #catImage {
+      width: 20px;
+      height:25px;
+  }
+  #catfact {
+      position: relative;
+      right: 50%;
+      text-align: center;
+      transform: translate(50%,0%);
+  
+  }
+  #randomCat:hover {
+    cursor: pointer;
+  }
+  #randomCat:active {
+    filter: brightness(50%);
+   }
+  #randomCat {
+    position:absolute;
+    border:solid ;
+    border-color: black;
+    border-radius: 10px;
+  }
+  #cat:active {
+  
+    height:225px;
+    width: 175px;
+    filter: brightness(50%);
+   }
+  #cat:hover {
+   cursor: pointer;
+  }
+
+  #main{
+   position:fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%)
+  }
+  .add{
+   position:fixed;
+   color:white;
+   user-select: none;
+  }
+   #cat {
+     height:240px;
+     width: 190px;
+    } 
