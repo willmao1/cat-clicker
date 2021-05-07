@@ -1,0 +1,26 @@
+#Counter{
+    text-align: center;
+    position:fixed;
+    top: 0%;
+    left: 50%;
+    color:black; 
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    border:solid;
+    max-width:20%;
+    border-color: white;
+    background-color: white;
+    border-radius: 20px;
+    transform: translate(-50%, 0%);
+  }
+  #catImage {
+      width: 30px;
+      height:30px;
+  }
+  #catfact {
+      position: relative;
+      right: 50%;
+      text-align: center;
+      transform: translate(50%,0%);
+
+  }

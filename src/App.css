@@ -1,0 +1,35 @@
+#cat:active {
+
+   height:185px;
+   width: 175px;
+   filter: brightness(50%);
+  }
+#cat:hover {
+  cursor: pointer;
+}
+#randomCat:hover {
+  cursor: pointer;
+}
+#randomCat:active {
+  filter: brightness(50%);
+ }
+#randomCat {
+  border:solid ;
+  border-color: white;
+  border-radius: 10px;
+}
+#main{
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+.add{
+  position:fixed;
+  color:pink;
+  user-select: none;
+}
+  #cat {
+    height:200px;
+    width: 190px;
+   } 

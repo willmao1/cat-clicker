@@ -1,0 +1,66 @@
+.box{
+    margin-bottom: 0px;
+    position:relative;
+    border: solid;
+    border-width: 10px;
+    border-radius: 0;
+    background-image: url(lightWood2.png);
+    border-image: url(wood.png) 50 50 50 50 stretch stretch;
+    height:12.5%;
+    box-shadow: -10px 0px 100px 20px rgba(0, 0, 0, 0.2)!important ;
+    
+}
+.catViewer{
+    margin-bottom: 0px;
+    position:relative;
+    border: solid;
+    border-width: 10px;
+    border-radius: 0;
+    border-image: url(wood.png) 50 50 50 50 stretch stretch;
+    height:12.5%;
+    box-shadow: 10px 10px 100px 20px rgba(0, 0, 0, 0.2);
+    background-image: url(catBack.png) ; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; ;
+}
+#Sidebar {
+    overflow-y:auto
+}
+.catPic {
+    height: 30px;
+    width:30px;
+}
+.box:active {
+    filter: brightness(50%);
+    transform: scale(.995);
+}
+
+.wall {
+    width:20px;
+    
+    background: url(background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.img{
+    width:50px;
+    margin-right: 10px;
+    height:50px;
+}
+.thingNum {
+    font-size:50px;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%)
+}
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+}
