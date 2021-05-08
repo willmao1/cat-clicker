@@ -12,14 +12,15 @@ export default class App extends React.Component {
     async componentDidMount(){
         const clock =  await axios({
             method: 'get',
-            url: 'http://worldclockapi.com/api/json/est/now',     
+            url: ' http://worldclockapi.com/api/json/est/now'  
+  
           })
         console.log(clock);
         $(`#clock`).html(clock.data.currentDateTime);
         this.myTimer = setInterval(async ()=> {
             const clock =  await axios({
                 method: 'get',
-                url: 'http://worldclockapi.com/api/json/est/now',     
+                url: ' http://worldclockapi.com/api/json/est/now' 
               })
             console.log(clock);
             $(`#clock`).html(clock.data.currentDateTime);

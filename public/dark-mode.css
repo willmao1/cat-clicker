@@ -151,12 +151,14 @@ body {
     border-radius: 10px;
   }
   #cat:active {
-  
+    pointer-events: none;
+    cursor: pointer;
     height:225px;
     width: 175px;
     filter: brightness(50%);
    }
   #cat:hover {
+
    cursor: pointer;
   }
 

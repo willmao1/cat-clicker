@@ -60,7 +60,7 @@ export default class Upgrades extends React.Component {
     }
     render() {
         return (<div id ="upgrades">
-            <div id ="cursorsUpgradeContainer" className="upgradeImgContainer"><img className = "upgradeImg" id ="cursorsUpgrade"  title="Double your cursor output" onClick = { () => this.props.handler("cursors")} src ={cursors}></img></div>
+            <div id ="cursorsUpgradeContainer" className="upgradeImgContainer"><img className = "upgradeImg" id ="cursorsUpgrade"  title="Double your cursor output and increase your clicking output" onClick = { () => this.props.handler("cursors")} src ={cursors}></img></div>
             <div id ="milksUpgradeContainer" className="upgradeImgContainer"><img id ="milksUpgrade" className = "upgradeImg" title="Double your milk output" onClick = { () => this.props.handler("milks")} src ={milks}></img></div>
             <div id ="spsUpgradeContainer" className="upgradeImgContainer"><img id ="spsUpgrade" className = "upgradeImg" title="Double your scratching pole output" onClick = { () => this.props.handler("sps")} src ={sps}></img></div>
             <div id ="cfsUpgradeContainer" className="upgradeImgContainer"><img id ="cfsUpgrade" className = "upgradeImg" title="Double your catnip farm output" onClick = { () => this.props.handler("cfs")} src ={cfs}></img></div>

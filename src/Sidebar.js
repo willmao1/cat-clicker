@@ -108,7 +108,7 @@ export default class Sidebar extends React.Component {
         };
 
         return (<div  id = "wholecat">
-            <App bonus = {Math.pow(5,this.state.upgrades.cursors)+.01*(calculateCookies(this.state,"counter"))*this.state.upgrades.cursors} subCat={this.state.latestPurchase} ref={this.ChildElement} catsPS={calculateCookies(this.state,"counter")}/>
+            <App bonus = {Math.pow(5,this.state.upgrades.cursors)+Math.floor(.01*(calculateCookies(this.state,"counter"))*this.state.upgrades.cursors)} subCat={this.state.latestPurchase} ref={this.ChildElement} catsPS={calculateCookies(this.state,"counter")}/>
             <div className= "columns">
             <FactoryViewer amounts =  {this.state.amounts}/>
 
@@ -132,7 +132,7 @@ export default class Sidebar extends React.Component {
                      Milk - {this.state.prices["milksBuy"]}<img className="catPic" src={cat}></img>
                 </h1>
                 <h2 className="subtitle">
-                    attract more cats
+                    they like some melk
                 </h2></div>
                 <div className="column"><span className="thingNum" >{this.state.amounts.milks} </span></div></li>
             <li id = "spsBuy" className="tile is-child box" onClick={e => this.handleClick("spsBuy")}>
@@ -141,7 +141,7 @@ export default class Sidebar extends React.Component {
                     Stratching Pole - {this.state.prices["spsBuy"]}<img className="catPic" src={cat}></img>
                 </h1>
                 <h2 className="subtitle">
-                    attract more cats
+                    get dah cats
                 </h2></div>
                 <div className="column"><span className="thingNum" >{this.state.amounts.sps} </span></div></li>
             <li id = "cfsBuy" className="tile is-child box" onClick={e => this.handleClick("cfsBuy")}>
