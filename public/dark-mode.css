@@ -19,9 +19,9 @@ body {
     color: white;
     border-width: 10px;
     border-radius: 0px !important;
-    background-image: url(woodback.png);
+    background-image: url(darkwood4.png);
     border-image: url(darkwood.png) 50 50 50 50 stretch stretch;
-    height:12.5%;
+    height:9em;
     box-shadow: -10px 0px 100px 20px rgba(0, 0, 0, 0.2)!important ;
     
   }
@@ -33,6 +33,7 @@ body {
     margin-bottom: 0px;
     position:relative;
     border: solid;
+    overflow: hidden;
     border-width: 10px;
     border-radius: 0;
     border-image: url(darkwood.png) 50 50 50 50 stretch stretch;
@@ -52,10 +53,21 @@ body {
     width:20px;
   }
   .box:active {
-    filter: brightness(50%);
+    filter: brightness(25%);
     transform: scale(.995);
   }
+  #clockContainer{
+    height:2em;
+    position:absolute;
+    z-index: 1000;
+  }
   
+  #clock{
+    background-image: url(darkwood4.png);
+    border:solid;
+    border-image: url(woodback.png) 50 50 50 50 stretch stretch;
+    color:white
+  }
   .wall {
     width:20px;
     
@@ -66,13 +78,14 @@ body {
     background-size: cover;
   }
   .img{
-    width:50px;
+    width:35px;
     border: solid;
-    border-image: url(wood.png) 50 50 50 50 stretch stretch;
+    border-image: url(darkwood4.png) 50 50 50 50 stretch stretch;
     margin-right: 10px;
-    height:50px;
+    height:35px;
   }
   .thingNum {
+    color:white;
     font-size:50px;
     position: absolute;
     top: 50%;
@@ -81,11 +94,17 @@ body {
   }
   h1 {
     font-family: 'Courier New', Courier, monospace;
+  
     color:white !important;
+    font-size:1.5em !important;
+
   }
   h2 {
+    font-weight: bold !important;
     font-family: 'Courier New', Courier, monospace;
     color:white !important;
+    font-size:medium !important;
+
   }
   
   #DarkModeButton{
@@ -156,3 +175,34 @@ body {
      height:240px;
      width: 190px;
     } 
+    .upgradeImgContainer{
+      border: solid;
+      border-image: url(wood.png) 50 50 50 50 stretch stretch;
+      border-radius: 5px;
+      background:url(woodback.png) no-repeat ; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      width:5em;
+      display: inline-block;
+      margin-bottom: 0;
+      height:5em;  
+    }
+    .upgradeImg{
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width:4.5em;
+      margin-bottom: 0;
+      height:4.5em;  
+    }
+    #upgrades {
+      border:solid 10px;
+      background-image: url(coolwood.png);
+      border-image: url(darkwood.png) 50 50 50 50 stretch stretch;
+      position: relative;
+      height: 18em;
+      width: 100%;
+    }

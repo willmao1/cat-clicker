@@ -6,7 +6,6 @@ import cursor from './cursor.png';
 import milk from './milk.png'
 import $ from 'jquery'
 import App from './App'
-import Counter from './Counter.js'
 import cat from './cat.png'
 import farm from './farm.png'
 import pick from './pick.png'
@@ -15,33 +14,80 @@ import spaceship from './spaceship.png'
 import portal from './portal.png'
 import FactoryViewer from './FactoryViewer';
 import sp from './sp.png'
+import Upgrades from './Upgrades.js';
 export default class Sidebar extends React.Component {
-    state = {
+    constructor() {
+        super()
+        this.state = {
         
-        prices: {"cursorsBuy":15,"milksBuy":100, "spsBuy":500,"cfsBuy":1500, "minersBuy":5000, "cmsBuy":40000, "spaceshipsBuy": 1000000, "portalsBuy": 123456789},
-        amounts: {cursors : 0,milks:0,
-        sps:0,
-        cfs:0,
-        miners:0,
-        cms:0,
-        spaceships:0,
-        portals:0,
-        latestPurchase:0},
-        handleClick : this.handleClick.bind(this),
-        ChildElement: React.createRef()
+            prices: {cursorsBuy:15,milksBuy:100, spsBuy:500,cfsBuy:1500, minersBuy:5000, cmsBuy:40000, spaceshipsBuy: 1000000, portalsBuy: 123456789},
+            amounts: {cursors : 0,milks:0,
+            sps:0,
+            cfs:0,
+            miners:0,
+            cms:0,
+            spaceships:0,
+            portals:0},
+            latestPurchase: 0,
+            upgrades: {
+                cursors : 0,
+                milks:0,
+                sps:0,
+                cfs:0,
+                miners:0,
+                cms:0,
+                spaceships:0,
+                portals:0
+            },
+            upgradesPrice: {
+                cursors : 500,
+                milks:4000,
+                sps:16000,
+                cfs:60000,
+                miners:240000,
+                cms:1000000,
+                spaceships:4000000,
+                portals:200000000
+            },
+            handleClick : this.handleClick.bind(this),
+        }
+        this.ChildElement= React.createRef()
+        this.handler = this.handler.bind(this);
     }
-  
+    
+    handler(type) {
+        this.state.upgrades[type]++;
+        var latestPurchase1 = this.state.upgradesPrice[type];
+        this.state.upgradesPrice[type]*=2;
+        this.setState({prices: this.state.prices, amounts: this.state.amounts, latestPurchase:latestPurchase1,  upgrades:this.state.upgrades, upgradesPrice:this.state.upgradesPrice, handleClick:this.state.handleClick})
+        console.log(this.state);
+    }
     componentDidMount = () => {
         this.myTimer = setInterval(()=> {
             Object.keys(this.state.prices).forEach((ele) => {
-                if(this.state.ChildElement.current.state.ChildElement.current.state.cats<this.state.prices[ele]){
+                if(this.ChildElement.current.ChildElement.current.state.cats<this.state.prices[ele]){
                     $(`#${ele}`).css("filter","brightness(50%)");
                     $(`#${ele}`).css("pointer-events","none");
                 }
                 else {
-                    $(`#${ele}`).css("filter","brightness(100%)");
-                    $(`#${ele}`).css("pointer-events","all");
+                    $(`#${ele}`).removeAttr("style")
                 }
+                if(this.state.amounts[ele.substring(0,ele.length-3)]>=20+10*this.state.upgrades[ele.substring(0,ele.length-3)]){
+                    $(`#${ele.substring(0,ele.length-3)}UpgradeContainer`).css("display","inline-block");
+                }
+                else {
+                    $(`#${ele.substring(0,ele.length-3)}UpgradeContainer`).css("display","none");
+                }
+                if(this.ChildElement.current.ChildElement.current.state.cats<this.state.upgradesPrice[ele.substring(0,ele.length-3)]){
+                   
+                    $(`#${ele.substring(0,ele.length-3)}UpgradeContainer`).css("filter","brightness(50%)");
+                    $(`#${ele.substring(0,ele.length-3)}UpgradeContainer`).css("pointer-events","none");
+                }
+                else {
+                    $(`#${ele.substring(0,ele.length-3)}UpgradeContainer`).css("filter","brightness(100%)");
+                    $(`#${ele.substring(0,ele.length-3)}UpgradeContainer`).css("pointer-events","all");
+                }
+                
             })
             
         },10)
@@ -50,6 +96,8 @@ export default class Sidebar extends React.Component {
     handleClick(type) {
        
                 this.setState(calculateCookies(this.state,type)) 
+                console.log(this.state);
+
         
     }
 
@@ -59,12 +107,15 @@ export default class Sidebar extends React.Component {
             padding: "5px"
         };
 
-        return (<div className="wall" id = "wholecat">
-            <App subCat={this.state.latestPurchase} ref={this.state.ChildElement} catsPS={calculateCookies(this.state,"counter")}/>
+        return (<div  id = "wholecat">
+            <App bonus = {Math.pow(5,this.state.upgrades.cursors)+.01*(calculateCookies(this.state,"counter"))*this.state.upgrades.cursors} subCat={this.state.latestPurchase} ref={this.ChildElement} catsPS={calculateCookies(this.state,"counter")}/>
             <div className= "columns">
             <FactoryViewer amounts =  {this.state.amounts}/>
-            <div className = "column"></div>
+
+            <div className = "column wall"></div>
             <div id="Sidebar" className = "column" >
+            <Upgrades upgrades = {this.state.upgrades} handler = {this.handler}/>
+
             <li id = "cursorsBuy" className="tile is-child box columns" onClick={e => this.handleClick("cursorsBuy")}>
                 <div className="column"><img className ="img" src={cursor}></img>
                 <h1 style={inline} className= "title">

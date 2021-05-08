@@ -3,6 +3,7 @@ import './Counter.css';
 import cat from './cat.png'
 import axios from 'axios'
 import $ from 'jquery'
+
 export default class Counter extends React.Component {
     constructor() {
         super();
@@ -32,6 +33,12 @@ export default class Counter extends React.Component {
             this.setState({cats: this.state.cats+this.props.addCat});
         }
         if(this.props.catsPS!==nextProps.catsPS){
+            
+            this.catFactCount++;
+            if(this.catFactCount == 5){
+                this.catFactCount = 0;
+            }
+            this.setState({cats: this.state.cats-nextProps.subCat});
             const facts = await this.getFact();
             if($(`#catfact`).html() === undefined){
                 $(`#Counter`).append(`<div id = "catfact">${facts.data[this.catFactCount].text}<div>`)
@@ -39,12 +46,7 @@ export default class Counter extends React.Component {
             else {
                 $(`#catfact`).html(`${facts.data[this.catFactCount].text}`)
             }
-            this.catFactCount++;
-            if(this.catFactCount == 5){
-                this.catFactCount = 0;
-            }
-            console.log(this.props.subCat);
-            this.setState({cats: this.state.cats-nextProps.subCat});
+
         }
     }
     render() {

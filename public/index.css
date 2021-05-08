@@ -16,11 +16,13 @@ code {
   margin-bottom: 0px;
   position:relative;
   border: solid;
+  color:black !important;
+
   border-width: 10px;
   border-radius: 0px !important;
-  background-image: url(lightWood2.png);
+  background-image: url(woobackReal.png);
   border-image: url(wood.png) 50 50 50 50 stretch stretch;
-  height:12.5%;
+  height:9em;
   box-shadow: -10px 0px 100px 20px rgba(0, 0, 0, 0.2)!important ;
   
 }
@@ -36,12 +38,14 @@ code {
   border-radius: 0;
   border-image: url(wood.png) 50 50 50 50 stretch stretch;
   height:12.5%;
+  overflow: hidden;
   box-shadow: 10px 10px 100px 20px rgba(0, 0, 0, 0.2);
   background-image: url(catBack.png) ; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; ;
+  background-size: cover; 
+
 }
 #Sidebar {
   overflow-y:auto
@@ -51,7 +55,7 @@ code {
   width:20px;
 }
 .box:active {
-  filter: brightness(50%);
+  filter: brightness(25%);
   transform: scale(.995);
 }
 
@@ -73,10 +77,48 @@ code {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  width:50px;
+  width:35px;
   margin-right: 10px;
-  height:50px;
+  height:35px;
 }
+
+.upgradeImgContainer{
+  border: solid;
+  border-image: url(wood.png) 50 50 50 50 stretch stretch;
+  border-radius: 5px;
+  background:url(lightWood2.png) no-repeat ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:5em;
+  display: inline-block;
+  margin-bottom: 0;
+  height:5em;  
+}
+.upgradeImg{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:4.5em;
+  margin-bottom: 0;
+  height:4.5em;  
+}
+
+#clockContainer{
+  height:2em;
+  position:absolute;
+  z-index: 1000;
+}
+
+#clock{
+  background-image: url(lightWood2.png);
+  border:solid;
+  border-image: url(woodback.png) 50 50 50 50 stretch stretch;
+  color:black
+}
+
 .thingNum {
   font-size:50px;
   position: absolute;
@@ -85,9 +127,17 @@ code {
   transform: translate(-50%, -50%)
 }
 h1 {
+  font-size: 1.5em !important;
+  color:black !important;
+  font-weight: bold !important;
+
   font-family: 'Courier New', Courier, monospace;
 }
 h2 {
+  font-size: medium !important;
+  color:black !important;
+  font-weight: bold !important;
+
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -168,4 +218,14 @@ h2 {
  #cat {
    height:240px;
    width: 190px;
+
   } 
+
+#upgrades {
+  border:solid 10px;
+  background-image: url(woodbackReal.png);
+  border-image: url(wood.png) 50 50 50 50 stretch stretch;
+  position: relative;
+  height: 18em;
+  width: 100%;
+}

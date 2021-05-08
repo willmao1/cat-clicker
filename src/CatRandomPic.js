@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import $ from 'jquery';
-import axios from 'axios'
+import axios from 'axios';
 
 export default class CatRandomPic extends React.Component {
     constructor(props) {
@@ -18,6 +18,7 @@ export default class CatRandomPic extends React.Component {
             method: 'get',
             url: 'https://thatcopy.pw/catapi/rest/',            
           });
+          
         return cats;
     }
    
@@ -61,7 +62,6 @@ export default class CatRandomPic extends React.Component {
         $(`#randomCat`).css("display","none");  
     }
     componentDidUpdate(prevProps){
-        console.log(this.props.clicks);
 
         if(this.props.clicks%50 == 0 && this.props.clicks>0 && prevProps.clicks != this.props.clicks && this.state.exists == false){  
             $(`#randomCat`).css("pointer-events","all");
@@ -80,7 +80,8 @@ export default class CatRandomPic extends React.Component {
        
     }
     render(){
-        return (<img id ="randomCat"  onClick={this.handleClick}></img>)
+        return (<img id ="randomCat"  onClick={async(e) => {await this.handleClick(e); this.props.handler(this.state.clicks) } }></img>)
+
     }
-        
+
 }

@@ -4,6 +4,7 @@ import cat from './cat.png'
 import $ from 'jquery';
 import Counter from './Counter.js'
 import CatRandomPic from './CatRandomPic.js';
+import Clock from './Clock.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -11,25 +12,28 @@ export default class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       clicks:0,
-      ogBonus:1,
+     
       bonus:1,
       catClicks:0,
-      ChildElement: React.createRef(),
-      ChildElement2: React.createRef()
     }
-  }
-  componentDidMount(){
-    this.myTimer = setInterval(()=> {
-      if(this.state.ChildElement2.current.state.clicks!=this.state.catClicks) {
-          // console.log(this.state.ChildElement2.current.state.clicks);
-          this.setState({clicks:this.state.clicks, ogBonus: this.state.ogBonus, bonus: this.state.bonus, catClicks: this.state.catClicks+1, ChildElement: this.state.ChildElement, ChildElement2: this.state.ChildElement2})
-          this.state.ChildElement.current.add(this.state.bonus*50);
+    this.ChildElement2 = React.createRef();
+    this.handler = this.handler.bind(this);
+    this.ChildElement = React.createRef();
 
-        }
-      
-  },100)
   }
-  
+  static getDerivedStateFromProps(props, state) {
+    return {clicks: state.clicks,
+            bonus: props.bonus,
+            catClicks: state.catClicks};
+}
+  handler(catClicks){
+    console.log(catClicks);
+
+      if(catClicks!=this.state.catClicks) {
+          this.setState({clicks:this.state.clicks,  bonus: this.state.bonus, catClicks: this.state.catClicks+1})
+          this.ChildElement.current.add(this.state.bonus*50);
+        }
+  }
   
   
   handleClick(event){
@@ -58,7 +62,7 @@ export default class App extends React.Component {
         $(`.add`).get(i).remove();
       }
     }
-    this.setState({clicks:this.state.clicks+1, ogBonus: this.state.ogBonus, bonus: this.state.bonus, catClicks: this.state.catClicks, ChildElement: this.state.ChildElement, ChildElement2: this.state.ChildElement2});
+    this.setState({clicks:this.state.clicks+1, bonus: this.state.bonus, catClicks: this.state.catClicks, ChildElement: this.state.ChildElement, ChildElement2: this.state.ChildElement2});
   }
   
   
@@ -66,8 +70,9 @@ export default class App extends React.Component {
     
         return (
           <div>
-              <CatRandomPic ref = {this.state.ChildElement2} bonus = {this.state.bonus*50} clicks = {this.state.clicks}/>
-              <Counter ref = {this.state.ChildElement}  catsPS = {this.props.catsPS} subCat = {this.props.subCat} addCat={this.state.bonus} clicks={this.state.clicks} />
+               <Clock/>
+              <CatRandomPic handler = {this.handler} ref = {this.ChildElement2} bonus = {this.state.bonus*50} clicks = {this.state.clicks}/>
+              <Counter ref = {this.ChildElement}  catsPS = {this.props.catsPS} subCat = {this.props.subCat} addCat={this.state.bonus} clicks={this.state.clicks} />
               <div id="main" onClick={this.handleClick}>
               <img id="cat" src={cat}></img>
               </div>

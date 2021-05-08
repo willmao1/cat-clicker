@@ -6,6 +6,7 @@ import Counter from './Counter';
 import Sidebar from './Sidebar'
 import reportWebVitals from './reportWebVitals';
 import $ from 'jquery'
+
 import DarkModeButton from './DarkModeButton';
 ReactDOM.render(
   <React.StrictMode>
