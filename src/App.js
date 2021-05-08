@@ -4,7 +4,7 @@ import cat from './cat.png'
 import $ from 'jquery';
 import Counter from './Counter.js'
 import CatRandomPic from './CatRandomPic.js';
-import Clock from './Clock.js'
+import Joke from './Joke.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -70,7 +70,7 @@ export default class App extends React.Component {
     
         return (
           <div>
-               <Clock/>
+               <Joke/>
               <CatRandomPic handler = {this.handler} ref = {this.ChildElement2} bonus = {this.state.bonus*50} clicks = {this.state.clicks}/>
               <Counter ref = {this.ChildElement}  catsPS = {this.props.catsPS} subCat = {this.props.subCat} addCat={this.state.bonus} clicks={this.state.clicks} />
               <div id="main" onClick={this.handleClick}>

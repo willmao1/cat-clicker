@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import $ from 'jquery';
-export default class App extends React.Component {
+export default class Joke extends React.Component {
     constructor(){
         super()
         this.state = {
@@ -10,20 +10,17 @@ export default class App extends React.Component {
         }
     }
     async componentDidMount(){
-        const clock =  await axios({
+        const joke =  await axios({
             method: 'get',
-            url: ' http://worldclockapi.com/api/json/est/now'  
-  
+            url: 'https://official-joke-api.appspot.com/random_joke'  
           })
-        console.log(clock);
-        $(`#clock`).html(clock.data.currentDateTime);
+        $(`#clock`).html(joke.data.setup +"       "+joke.data.punchline );
         this.myTimer = setInterval(async ()=> {
-            const clock =  await axios({
+            const joke =  await axios({
                 method: 'get',
-                url: ' http://worldclockapi.com/api/json/est/now' 
-              })
-            console.log(clock);
-            $(`#clock`).html(clock.data.currentDateTime);
+                url: 'https://official-joke-api.appspot.com/random_joke'  
+            })
+            $(`#clock`).html(joke.data.setup +"       "+joke.data.punchline );
         },60000)
     }
     render(){
